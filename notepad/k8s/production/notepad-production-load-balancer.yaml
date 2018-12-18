@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prod-lb-service
+  labels:
+    app: notepad
+    env: production
+spec:
+  selector:
+    app: notepad
+    env: production
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 31121
+    name: prod-ui-lb
+  type: LoadBalancer
