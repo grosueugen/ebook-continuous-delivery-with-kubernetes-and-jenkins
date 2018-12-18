@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: testing-lb-service
+  labels:
+    app: notepad
+    env: testing
+spec:
+  selector:
+    app: notepad
+    env: testing
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 31171
+    name: testing-ui-lb
+  type: LoadBalancer
